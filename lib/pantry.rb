@@ -3,11 +3,13 @@ require 'pry'
 
 class Pantry
   attr_reader :stock,
-              :shopping_list
+              :shopping_list,
+              :cookbook
 
   def initialize
     @stock = Hash.new(0)
     @shopping_list = Hash.new(0)
+    @cookbook = Hash.new(0)
   end
 
   def stock_check(item)
@@ -30,6 +32,13 @@ class Pantry
       to_print += "* #{key}: #{value}\n"
     end
     to_print.chomp
+  end
+
+  def add_to_cookbook(recipe)
+    cookbook[recipe.name] = recipe.ingredients
+  end
+
+  def what_can_i_make
   end
 
 end
