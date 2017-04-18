@@ -38,16 +38,24 @@ class Pantry
     cookbook[recipe.name] = recipe.ingredients
   end
 
+  #I should use find_all, but I don't have time to troubleshoot the problem I'm having
   def what_can_i_make
+    recipes = []
     cookbook.each do |recipe, ingredients|
       if ingredients.all? { |i| i[1] <= stock[i[0]] }
-      binding.pry
+      recipes << recipe
       end
-      # ingredients.each do |ingredient, quantity|
-      #   if stock[ingredient] >= quantity
-      #     binding.pry
-      #   end
-      # end
+    end
+    recipes
+  end
+
+  def how_many_can_i_make
+    times_i_can_make_it = Hash.new(0)
+    what_can_i_make.each do |recipe|
+      ingreds = cookbook[recipe]
+      ingreds.each do |key, value|
+        binding.pry
+      end
     end
   end
 
