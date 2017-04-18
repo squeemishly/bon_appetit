@@ -112,7 +112,6 @@ class PantryTest < Minitest::Test
   end
 
   def test_it_can_suggest_recipes_based_on_ingredients_we_have_on_hand
-    skip
     r1 = Recipe.new("Cheese Pizza")
     r1.add_ingredient("Cheese", 20)
     r1.add_ingredient("Flour", 20)

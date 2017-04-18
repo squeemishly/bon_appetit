@@ -39,6 +39,13 @@ class Pantry
   end
 
   def what_can_i_make
+    cookbook.each do |recipe, ingredients|
+      ingredients.each do |ingredient, quantity|
+        if stock[ingredient] >= quantity
+          binding.pry
+        end
+      end
+    end
   end
 
 end
