@@ -164,7 +164,7 @@ class PantryTest < Minitest::Test
 
     assert_equal ["Pickles", "Peanuts"], pantry.what_can_i_make
     assert_equal ["Pickles", "Peanuts"], pantry.how_many_can_i_make.keys
-    assert_equal [2, 1], pantry.how_many_can_i_make.values
+    assert_equal [1, 2], pantry.how_many_can_i_make.values
 
   end
 

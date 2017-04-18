@@ -52,11 +52,16 @@ class Pantry
   def how_many_can_i_make
     times_i_can_make_it = Hash.new(0)
     what_can_i_make.each do |recipe|
-      ingreds = cookbook[recipe]
-      ingreds.each do |key, value|
-        binding.pry
+      cookbook[recipe].each do |key, value|
+        num = stock[key]/value
+        if times_i_can_make_it[recipe] > 0
+          times_i_can_make_it[recipe] = num unless times_i_can_make_it[recipe] < num
+        else
+          times_i_can_make_it[recipe] = num
+        end
       end
     end
+    times_i_can_make_it
   end
 
 end
